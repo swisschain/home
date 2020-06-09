@@ -19,6 +19,6 @@ To develop a feature for a Swsschain product you have to:
 * Once you'll push changes to the `dev-*` branch, the update will be built and deployed to the dev environment via GitHub actions pipeline. `dev` tag is used for the Docker images built for the dev environment.
 * Test the feature on the dev environment by yourself. Once you're sure that the feature is ready, rise a PR of the `dev-*` branch into the `master` branch and assign it to the owners of the repository.
 * Once PR is reviewed and merged into the test, release a new service version using the GitHub releases and update the Docker image version tag in the 'test' branch of the test/prod repository of the corresponding product.
-* Ensure that your updates are deployed to the test environment and move the story to the 'Testing' state in Jira.
+* Ensure that your updates are deployed to the test environment and move the story to the `Testing` state in Jira.
 
 ## Releasing
