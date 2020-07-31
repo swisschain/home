@@ -22,3 +22,9 @@ To develop a feature for a Swsschain product you have to:
 * Ensure that your updates are deployed to the test environment and add a sub-task to test the story in Jira.
 
 ## Releasing
+
+## Common auxilary services
+
+| Service | Dev build and publish | Master build | Release |
+| ------------- |-----|-----|-----|
+| [Messaging.Pulsar](https://github.com/swisschain/Messaging.Pulsar) | ![Dev build](https://github.com/swisschain/Messaging.Pulsar/workflows/CI%20dev%20build/badge.svg) | ![Validate master](https://github.com/swisschain/Messaging.Pulsar/workflows/Validate%20master/badge.svg) | ![Release Service](https://github.com/swisschain/Messaging.Pulsar/workflows/Release%20Service/badge.svg) |
