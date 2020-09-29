@@ -1,1 +1,1 @@
-1. Switching bitcoin like nodes
+# Switching bitcoin like nodes
