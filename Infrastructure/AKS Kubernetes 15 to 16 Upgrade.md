@@ -13,3 +13,14 @@ for i in $(grep -rn "apiVersion: extensions" ./|awk -F: '{print $1}'); do echo $
 
 * Go to Kubernetes object Configuration tab, at Kubernetes version select 1.16.13 and click Save (during this process access to nodes by kubectl can be lostied, all services runned at nodes will be work as before)
 * Go Node polls tab, clicl on "..." right side context menu of nodes pool you need to upgrade and click Upgrade, select 1.16.13 Node pool Kubernetes version and click apply (during tshis process all services will be moved to new node and after update current node moved back)
+
+## Upgrade by Azure CLImanually at Portal, upgrade node pools one by one
+
+To upgrade just run the command (in comparison with manual upgrade process this command will start upgrade process at all node pools nodes at once):
+
+```bash
+az aks upgrade \
+--resource-group KubernetesDev \
+--name KubernetesDev \
+--kubernetes-version 1.16.13
+```
