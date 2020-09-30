@@ -17,7 +17,7 @@ Steps to update (there are original source to [Create Certificate signing reques
 * Sign Certificate
   * Go to https://developer.apple.com/programs/
   * Click on 'Certificates, Identifiers & Profiles'.
-  * Select 'Identifiers' and click on our application name (Lykke Wallet
+  * Select 'Identifiers' and click on our application name (Lykke Wallet)
   * Scroll down the page to "Push Notifications" and click 'Configure'.
   * A pop-up window will appear. Click on 'Create Certificate' under Production SSL Certificate.
   * Click 'Choose File' and select the CSR file we are created in Keychain programm and click on 'Continue'.
