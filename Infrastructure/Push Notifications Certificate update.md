@@ -1,8 +1,11 @@
 # Push Notifications
 
 We use Azure Push Notifications service to send notifications to users apple devices (NotificationsId stored at ClientAccountService.Db.ClientPersonalInfoConnString table, Pk=Trader, Rk=ClientId)
+
 To test from Azure Portal go to Test Send tab at Notification Hub used to send notifications, choose Apple at Platforms, type your NotificationsId from Azure Table above and click Send, you should receive message in mobile application.
+
 As far as each certificate has expiration date we need to update it periodicaly.
+
 Steps to update (there are original source to [Create Certificate signing request](https://help.apple.com/developer-account/#/devbfa00fef7) and [Sign](https://customersupport.doubledutch.me/hc/en-us/articles/229495568-iOS-How-to-Create-a-Push-Notification-Certificate)):
 
 * Create Certificate signing request
