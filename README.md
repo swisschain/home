@@ -10,31 +10,46 @@ Home of Swisschain products development
 
 To develop a feature for a Swsschain product or fix a bug you have to follow given guidline.
 
-* In Jira
-  * **Project manager** or **QA Engineer** should add a `Story` or an `Bug` to the corresponding product into [Swisschain Jira](https://swisschain.atlassian.net/).
-  * **Developer** should move the `Story`/`Bug` to the `In Progress` state once work is started.
-  * **Developer** and/or **Project Architect** should add a `Sub-task` for each component which should be updated to complete the `Story`/`Bug`.
-  * **Developer** should move each `Sub-task` to the `In Progress` state once the work on the particular component is started.
-* In GitHub
-  * **Developer** should create a feature-branch named `dev-[STORY/BUG-NUMBER]-short-task-description` from the `master` branch in the GitHub repository of the particular component. Note, that the branch prefix should contain `Story`/`Bug` number, not `Sub-task`.
-  * Once **Developer** pushed changes to the `dev-*` branch, the update will be built and deployed to the dev environment via GitHub actions pipeline. `dev` tag is used for the Docker images built for the dev environment.
-  * **Developer** should test the feature on the dev environment by himrself. Once **Developer** sure that the feature is ready, he should rise a PR of the `dev-*` branch into the `master` branch and assign it to the owners of the repository.
-  * Once **Owners of the repository** have reviewed the PR they should merge it into the `master` branch.
-  * **Developer** should release a new service version using the GitHub releases.
-  * Once all components related to the `Storey`/`Bug` are ready, the **Developer** should update version tag of the corresponding Docker images in the `master` branch of the test/prod infrastructure repository of the corresponding product.
-  * **Developer** should add a draft beta release in the test/prod infrastructure repository or update it if it's already exists. In the case if there is no draft beta release yet and there are released beta releases of the same version, the description of the new draft beta release should be copied from the recent released beta release. Developer should update description of the draft beta release: 
+* On GitHub
+  * **Release manager** creates the new `version-branch` in the infrastructure repository of the product and set it as the default branch. Name pattern for the branch is `versions/{major}.{minor}.{patch}`
+  * **Release manager** creates a draft beta-release in the infrastructure repository of the productvia GitHub Releases. Name pattern for the release is `{major}.{minor}.{patch}-beta.{revision}`. Template for the release description is **TODO**.
+* On Jira
+  * **Project manager** or **QA Engineer** adds a `Story` or a `Bug` to the corresponding product into [Swisschain Jira](https://swisschain.atlassian.net/).
+  * **Developer** moves the `Story`/`Bug` to the `In Progress` state once work is started.
+  * **Developer** and/or **Project Architect** adds a `Sub-task` for each component which should be updated to complete the `Story`/`Bug`.
+  * **Developer** moves each `Sub-task` to the `In Progress` state once the work on the particular component is started.
+* On GitHub
+  * **Developer** creates a `feature-branch` named `dev-{STORY/BUG-NUMBER}-short-task-description` from the `master` branch in the GitHub repository of the particular component. Note, that the branch prefix should contain `Story`/`Bug` number, not `Sub-task`.
+  * Once the **Developer** has pushed changes to the `feature-branch`, the updated component will be built and deployed to the dev environment via GitHub actions pipeline. *`dev` tag is used for the Docker images built for the dev environment*.
+  * **Developer** tests the feature on the dev environment by himrself. Once the **Developer** sure that the feature is ready, he creates a PR of the `feature-branch` into the `master` branch and assigns it to the **Repository owners**.
+  * Once the **Repository owners** have reviewed the PR they merges it into the `master` branch.
+  * **Developer** releases the new service version via GitHub Releases. Name patter for the release is `service-{major}.{minor}.{patch}`.
+  * Once all components related to the `Storey`/`Bug` are ready, the **Developer** updates version tag of the corresponding Docker images in the current `version-branch` of the infrastructure repository of the product.
+  * If it's needed to update the infrastructure of the product or its settings templates, the **Developer** updates `version-branch` of the infrastructure repository of the product accordingly.
+  * **Developer** updates a draft beta-release in the infrastructure repository or adds the new draft beta-release if there is no draft beta-release yet. In the case if there is no draft beta-release the description of the new draft beta-release should be copied from the recently published beta-release of the same version. Developer should update description of the draft beta-release: 
    * Add the `Story`/`Bug` number to the `Tasks` section
    * Describe new/updated settings keys and how to configure it in the `Settings` section
    * Describe additional manual work required in order to release the update
-* In Jira
-  * **Developer** should add a sub-task to test the `Story`/`Bug` and assign it to the **QA Engineer**
-  * **QA Engineer** should move the sub-task to the the `Story`/`Bug` to the `In Progress` state once he is ready to start the testing
-* In GitHub
-  * **QA Engineer** should mark the beta release as a 'pre release' and publish it. Publishing the release will trigger deployment of the update to the test environment via GitHub actions.
-* In Test environment
-  * Once the beta release is deployed, **QA Engineer** should test all not tested yet the 'Stories'/'Bugs' which the release contains.
- 
- TODO:
+   * Describe order of the components to add/update/remove
+* On Jira
+  * **Developer** adds a sub-task to test the `Story`/`Bug` and assign it to the **QA Engineer**
+  * **QA Engineer** moves the sub-task to test the `Story`/`Bug` to the `In Progress` state once he is ready to start the testing and notifies **Release manager**.
+* On Test environment
+  * **DevOps**, **Developer** and **Release manager** executes beta-release instructions.
+* On GitHub
+  * **Release manager** updates the beta-release description if any issues found while executing the instructions.
+  * Once beta-release instructions are completely executed the **Release manager** publishes the beta-release as the `pre release`. **TODO** (should we deploy updates manually as we do it on prod?). Publishing the release will trigger deployment of the update to the test environment via GitHub actions.
+* On Test environment
+  * Once the beta release is deployed, **QA Engineer** tests all not tested yet 'Stories'/'Bugs' which the beta-release contains.
+* On GitHub
+  * Once the beta-release testing is completed and **Project manager** have decided to publish it as a stable-version, the **QA Engineer** marks the release as validated and pass it to the **DevOps** to review.
+  * Once the **DevOps** has reviewed the release by comparing it with the `master` branch, he marks the release as validated and pass it to the **Release manager** to check version content.
+  * Once the **Release manager** has checked the version content, he marks the release as validated.
+  * **Release manager** copies the release description to the new stable-release and publishes it. Name pattern for the release is `{major}.{minor}.{patch}`.
+  * **Release manager** removes all beta-releases of the version.
+  * **DevOps** creates a pull request of the `version-branch` of the product infrastructure repository to the `master` branch of the forked repository related to the particular maintained instance of the product.
+  * **Release manager** merges the `version-branch` to the `master` branch of the product infrastructure repository.
+  * See first point.
 
 ## Common auxilary services
 
