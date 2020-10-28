@@ -6,22 +6,35 @@ Home of Swisschain products development
 
 * [Sirius](https://github.com/swisschain/Sirius)
 
-## Developing
+## Developing and releasing process
 
-To develop a feature for a Swsschain product you have to:
+To develop a feature for a Swsschain product or fix a bug you have to follow given guidline.
 
-* Add a story to the corresponding product into [Sisschain Jira](https://swisschain.atlassian.net/) or get an existing story and move it to the `In Progress` state.
-* Create a feature-branch named `dev-[TASK-NUMBER]-short-task-description` from the `master` branch in the GitHub repository.
-  * If you want to spread the work across several people, create a separate branch for each sub-task in the story.
-  * Start each sub-task branch from the `dev-*` branch.
-  * Name sub-task branche like `sub-[TASK-NUMBER]-short-task-description`.
-  * Once sub-task is done, merge it to the `dev-*` branch.
-* Once you'll push changes to the `dev-*` branch, the update will be built and deployed to the dev environment via GitHub actions pipeline. `dev` tag is used for the Docker images built for the dev environment.
-* Test the feature on the dev environment by yourself. Once you're sure that the feature is ready, rise a PR of the `dev-*` branch into the `master` branch and assign it to the owners of the repository.
-* Once PR is reviewed and merged into the `master`, release a new service version using the GitHub releases and update the Docker image version tag in the `test` branch of the test/prod repository of the corresponding product.
-* Ensure that your updates are deployed to the test environment and add a sub-task to test the story in Jira.
-
-## Releasing
+* In Jira
+ * **Project manager** or **QA Engineer** should add a `Story` or an `Bug` to the corresponding product into [Swisschain Jira](https://swisschain.atlassian.net/).
+ * **Developer** should to move the `Story`/`Bug` to the `In Progress` state once work is started.
+ * **Developer** and/or **Project Architect** should add a `Sub-task` for each component which should be updated to complete the `Story`/`Bug`.
+ * **Developer** should move each `Sub-task` to the `In Progress` state once the work on the particular component is started.
+* In GitHub
+ * **Developer** should create a feature-branch named `dev-[STORY/BUG-NUMBER]-short-task-description` from the `master` branch in the GitHub repository of the particular component. Note, that the branch prefix should contain `Story`/`Bug` number, not `Sub-task`.
+ * Once **Developer** pushed changes to the `dev-*` branch, the update will be built and deployed to the dev environment via GitHub actions pipeline. `dev` tag is used for the Docker images built for the dev environment.
+ * **Developer** should test the feature on the dev environment by himrself. Once **Developer** sure that the feature is ready, he should rise a PR of the `dev-*` branch into the `master` branch and assign it to the owners of the repository.
+ * Once **Owners of the repository** have reviewed the PR they should merge it into the `master` branch.
+ * **Developer** should release a new service version using the GitHub releases.
+ * Once all components related to the `Storey`/`Bug` are ready, the **Developer** should update version tag of the corresponding Docker images in the `master` branch of the test/prod infrastructure repository of the corresponding product.
+ * **Developer** should add a draft beta release in the test/prod infrastructure repository or update it if it's already exists. In the case if there is no draft beta release yet and there are released beta releases of the same version, the description of the new draft beta release should be copied from the recent released beta release. Developer should update description of the draft beta release: 
+  * Add the `Story`/`Bug` number to the `Tasks` section
+  * Describe new/updated settings keys and how to configure it in the `Settings` section
+  * Describe additional manual work required in order to release the update
+* In Jira
+ * **Developer** should add a sub-task to test the `Story`/`Bug` and assign it to the **QA Engineer**
+ * **QA Engineer** should move the sub-task to the the `Story`/`Bug` to the `In Progress` state once he is ready to start the testing
+* In GitHub
+ * **QA Engineer** should mark the beta release as a 'pre release' and publish it. Publishing the release will trigger deployment of the update to the test environment via GitHub actions.
+* In Test environment
+ * Once the beta release is deployed, **QA Engineer** should test all not tested yet the 'Stories'/'Bugs' which the release contains.
+ 
+ TODO:
 
 ## Common auxilary services
 
