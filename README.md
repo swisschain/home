@@ -12,7 +12,7 @@ To develop a feature for a Swsschain product or fix a bug you have to follow giv
 
 * In Jira
   * **Project manager** or **QA Engineer** should add a `Story` or an `Bug` to the corresponding product into [Swisschain Jira](https://swisschain.atlassian.net/).
-  * **Developer** should to move the `Story`/`Bug` to the `In Progress` state once work is started.
+  * **Developer** should move the `Story`/`Bug` to the `In Progress` state once work is started.
   * **Developer** and/or **Project Architect** should add a `Sub-task` for each component which should be updated to complete the `Story`/`Bug`.
   * **Developer** should move each `Sub-task` to the `In Progress` state once the work on the particular component is started.
 * In GitHub
