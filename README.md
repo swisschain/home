@@ -6,7 +6,7 @@ Home of Swisschain products development
 
 * [Sirius](https://github.com/swisschain/Sirius)
 
-## Developing and releasing process
+## Development and release process
 
 To develop a feature for a Swsschain product or fix a bug you have to follow given guidline.
 
