@@ -39,7 +39,7 @@ To develop a feature for a Swsschain product or fix a bug you have to follow giv
 * On GitHub
   * **Release manager** updates the beta-release description if any issues found while executing the instructions.
   * Once beta-release instructions are completely executed the **Release manager** publishes the beta-release as the `pre-release`. 
-    * (:question: *should we deploy updates manually as we do it on prod? Otherwise it will be hard to be sure that release instruction will work on prod and it's impossible to guarntee service deployment order*). (Old: *Publishing the release will trigger the deployment of the update to the test environment via GitHub actions*)
+    * (:question: *should we deploy updates manually as we do it on prod? Otherwise it will be hard to be sure that release instruction will work on prod and it's impossible to guarantee service deployment order*). (Old: *Publishing the release will trigger the deployment of the update to the test environment via GitHub actions*)
 * On Test environment
   * Once the beta release is deployed, **QA Engineer** tests all not tested yet `Stories`/`Bugs` which the beta-release contains.
 * On Jira
