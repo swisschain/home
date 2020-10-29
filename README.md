@@ -12,7 +12,7 @@ To develop a feature for a Swsschain product or fix a bug you have to follow giv
 
 * On GitHub
   * **Release manager** creates the new `version-branch` in the infrastructure repository of the product and set it as the default branch. Name pattern for the branch is `versions/{major}.{minor}.{patch}`
-  * **Release manager** creates a draft beta-release in the infrastructure repository of the productvia GitHub Releases. Name pattern for the release is `{major}.{minor}.{patch}-beta.{revision}`. Template for the release description is **TODO**.
+  * **Release manager** creates a draft beta-release in the infrastructure repository of the productvia GitHub Releases. Name pattern for the release is `{major}.{minor}.{patch}-beta.{revision}`. See [template](development-and-release-process/product-release-template.md) for the release description
 * On Jira
   * **Project manager** or **QA Engineer** adds a `Story` or a `Bug` to the corresponding product into [Swisschain Jira](https://swisschain.atlassian.net/).
   * **Developer** moves the `Story`/`Bug` to the `In Progress` state once work is started.
@@ -41,7 +41,10 @@ To develop a feature for a Swsschain product or fix a bug you have to follow giv
   * Once beta-release instructions are completely executed the **Release manager** publishes the beta-release as the `pre release`. **TODO** (should we deploy updates manually as we do it on prod?). Publishing the release will trigger deployment of the update to the test environment via GitHub actions.
 * On Test environment
   * Once the beta release is deployed, **QA Engineer** tests all not tested yet 'Stories'/'Bugs' which the beta-release contains.
+* On Jira
+  * **QA Engineer** writes down the version of the beta-release on which the `Story`/`Bug` was tested along with resolution.
 * On GitHub
+  * **QA Engineer** marks each tested `Story`/`Bug` as completed/failed in the beta-release.
   * Once the beta-release testing is completed and **Project manager** have decided to publish it as a stable-version, the **QA Engineer** marks the release as validated and pass it to the **DevOps** to review.
   * Once the **DevOps** has reviewed the release by comparing it with the `master` branch, he marks the release as validated and pass it to the **Release manager** to check version content.
   * Once the **Release manager** has checked the version content, he marks the release as validated.
