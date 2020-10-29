@@ -40,7 +40,7 @@ To develop a feature for a Swsschain product or fix a bug you have to follow giv
   * **Release manager** updates the beta-release description if any issues found while executing the instructions.
   * Once beta-release instructions are completely executed the **Release manager** publishes the beta-release as the `pre-release`. **TODO** (should we deploy updates manually as we do it on prod?). Publishing the release will trigger the deployment of the update to the test environment via GitHub actions.
 * On Test environment
-  * Once the beta release is deployed, **QA Engineer** tests all not tested yet 'Stories'/'Bugs' which the beta-release contains.
+  * Once the beta release is deployed, **QA Engineer** tests all not tested yet `Stories`/`Bugs` which the beta-release contains.
 * On Jira
   * **QA Engineer** writes down the version of the beta-release on which the `Story`/`Bug` was tested along with resolution.
 * On GitHub
