@@ -1,5 +1,11 @@
 Azure infrastructure guidlines
 
+# Management groups
+
+* Use management group to unite all subscriptions
+* Add region constraint to the management group, so all resources in all the subscriptions can be created only in the given region
+  * Use `Western Europe`
+
 # Subscriptions
 
 * Create a subscription for an environment
