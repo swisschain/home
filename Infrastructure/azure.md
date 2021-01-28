@@ -25,4 +25,9 @@ Azure infrastructure guidlines
 * Every resource should have next tags:
   * `full-name` (required) - full name of the resource without abbreviations
   * `owner` (required) - who have created or requested to create the resource (example: `kryazantsev`)
-  * `component` (optional) - system component which depends on the resource. If the resource is used by the single component.
+  * `component` (optional) - system component which depends on the resource. If the resource is used by the single component
+* Try to stick with `company/client``project``resource``env` pattern for the resource names
+  * Use abbreviations since resource name length is limitted
+  * Use the same abbreviations that already in use by other resources. Check it before you create something
+  * Use `dev`, `test`, `prod` to designate an environment
+  * Use either `sname-case` or `CamelCase` to distinguish parts of the name where it's possible
