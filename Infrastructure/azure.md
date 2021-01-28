@@ -20,7 +20,7 @@ Azure infrastructure guidlines
 * Use CamelCase naming style for the resource groups
 * If there are resources shared by several projects, create the resource group `ShardedRg`
 
-# Resource tags
+# Resources
 
 * Every resource should have next tags:
   * `full-name` (required) - full name of the resource without abbreviations
