@@ -18,7 +18,7 @@ This document contains guidlines for the Azure infrastructure
 * Create a resource group for a product
 * Add `Rg` suffix to the resource group name
 * Use CamelCase naming style for the resource groups
-* If there are resources shared by several projects, create the resource group `ShardedRg`
+* If there are resources shared by several projects, create the resource group `SharedRg`
 
 # Resources
 
