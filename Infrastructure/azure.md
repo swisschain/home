@@ -1,4 +1,4 @@
-Azure infrastructure guidlines
+This document contains guidlines for the Azure infrastructure
 
 # Management groups
 
