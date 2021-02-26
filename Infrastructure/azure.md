@@ -10,8 +10,6 @@ This document contains guidlines for the Azure infrastructure
 
 * Create a subscription for an environment
   * Use environment name as a subscription name (`Development`, `Test`, `Production`)
-* Place company operational resources in a separate subscription
-  * Use `Operational` name for it
 
 # Resource groups
 
@@ -19,6 +17,8 @@ This document contains guidlines for the Azure infrastructure
 * Add `Rg` suffix to the resource group name
 * Use CamelCase naming style for the resource groups
 * If there are resources shared by several projects, create the resource group `SharedRg`
+* Place company operational resources in a separate resource group
+  * Use `OperationalRg` name for it
 
 # Resources
 
